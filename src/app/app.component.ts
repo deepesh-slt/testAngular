@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'dg-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'testAngular';
+  title : string = 'testAngular - Deepesh Gupta';
+
+  constructor(private titleService : Title) {
+    this.titleService.setTitle(this.title);
+  }
+
 }
