@@ -1,6 +1,6 @@
 <p *ngIf="$tdForm.value">{{ $tdForm.value | json}}</p>
 
-<form ngForm #$tdForm="ngForm" (ngSubmit)="tdFormSubmit($tdForm.value)">
+<form ngForm #$tdForm="ngForm" (ngSubmit)="tdFormSubmit($tdForm.value)" autocomplete="off">
 
     <!-- Full Name Input -->
     <div class="form-group">
