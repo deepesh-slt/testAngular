@@ -15,11 +15,14 @@ export class Form2Component implements OnInit {
         Validators.required,
         Validators.minLength(4),
         Validators.maxLength(20),
-        FormValidation.nameValidation
+        FormValidation.nameValidation,
       ]),
       email : new FormControl('',[
         Validators.required,
-        Validators.email
+        Validators.email,
+      ],
+      [
+        FormValidation.uniqueEmail,
       ]),
       message : new FormControl('',Validators.required),
     }

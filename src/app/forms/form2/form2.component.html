@@ -40,6 +40,7 @@
 
             formControlName="email"
         >
+        <div class="text-warning" *ngIf="rfElement('email')?.pending">Checking...</div>
     </div>
     <!-- Email ValidatioN Errors -->
     <div class="alert alert-danger" *ngIf="rfElement('email')?.touched && rfElement('email')?.invalid">
@@ -47,6 +48,8 @@
         <div *ngIf="rfElement('email')?.errors?.required">Email Field Can Not Be Empty !</div>
 
         <div *ngIf="rfElement('email')?.errors?.email">Email Id is Invalid</div>
+
+        <div *ngIf="rfElement('email')?.errors?.uniqueEmail">Email Id has already taken</div>
         
     </div>
 
