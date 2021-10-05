@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormValidation } from '../validation/form-validation.validators';
 
 @Component({
   selector: 'dg-form2',
@@ -7,9 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Form2Component implements OnInit {
 
+  rForm = new FormGroup(
+    {
+      name : new FormControl('',[
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(20),
+        FormValidation.nameValidation
+      ]),
+      email : new FormControl('',[
+        Validators.required,
+        Validators.email
+      ]),
+      message : new FormControl('',Validators.required),
+    }
+  );
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  rFormSubmit(form : HTMLFormElement) {
+    console.log(form);
+  }
+
+  rfElement(element : string) : AbstractControl | null {
+    return this.rForm.get(element);
   }
 
 }
