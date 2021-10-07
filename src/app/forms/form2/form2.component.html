@@ -10,7 +10,7 @@
             name="name" 
             id="name" 
             class="form-control" 
-            placeholder="Full Name"
+            placeholder="Type 'hello' for a valid name"
 
             formControlName="name"
         >
@@ -36,7 +36,7 @@
             name="email" 
             id="email" 
             class="form-control" 
-            placeholder="Email ID"
+            placeholder="Type 'deepesh@gmail.com' for error"
 
             formControlName="email"
         >
@@ -75,7 +75,7 @@
 
     <!-- Submit Button -->
     <div class="form-group">
-        <button type="submit" class="form-control btn btn-success">
+        <button type="submit" class="form-control btn btn-success" [disabled]="this.rForm.invalid">
             Submit
         </button>
     </div>

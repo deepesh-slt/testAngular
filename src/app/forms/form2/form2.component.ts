@@ -41,4 +41,23 @@ export class Form2Component implements OnInit {
     return this.rForm.get(element);
   }
 
+  // uniqueEmail(data : AbstractControl | null){
+  //   let $this = this;
+  //   if(data !== null) {
+  //     if(this.rfElement('email')?.errors?.email === undefined){
+  //       let uniqueEmailResponse;
+  //       uniqueEmailResponse = FormValidation.uniqueEmail(data);
+  //       if(uniqueEmailResponse instanceof Promise) {
+  //         uniqueEmailResponse.then(function(value) {
+  //           if(value?.uniqueEmail) {
+  //             $this.rForm.setErrors({
+  //               uniqueEmail : value.uniqueEmail,
+  //             });
+  //           }
+  //         });
+  //       }
+  //     }
+  //   }
+  // }
+
 }
