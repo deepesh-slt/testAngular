@@ -1,5 +1,30 @@
-<ul class="list-group">
-    <li class="list-group-item" *ngFor="let post of posts; index as i">
-        {{ post.id }}. {{ post.title }}
-    </li>
-</ul>
+<form (ngSubmit)="addPostSubmit(addUserForm.value)" #addUserForm="ngForm" class="form-inline">
+    <div class="form-group">
+        <input type="text" name="fullname" placeholder="Full Name" class="form-control" ngModel>
+        <input type="text" name="username" placeholder="User Name" class="form-control" ngModel>
+        <input type="email" name="email" placeholder="Email" class="form-control" ngModel>
+        <input type="password" name="password" placeholder="Password" class="form-control" ngModel>
+        <button type="submit" [disabled]="!addUserForm.form.valid" class="form-control btn btn-success">
+            Add User
+        </button>
+    </div>
+</form>
+
+<table class="table mt-3 table-bordered table-striped">
+    <thead>
+        <th>id</th>
+        <th>Full Name</th>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>Password</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let post of posts; index as i">
+            <td>{{ post.id }}</td>
+            <td>{{ post.fullname }}</td>
+            <td>{{ post.username }}</td>
+            <td>{{ post.email }}</td>
+            <td>{{ post.password }}</td>
+        </tr>
+    </tbody>
+</table>
