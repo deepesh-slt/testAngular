@@ -23,7 +23,24 @@ export class ApiService {
     return this.http.get<userDataType[]>(`${this.url} ${id ? 'get/'+id : ''}`);
   }
 
-  postData(data : userDataType) : Observable<userDataType> {
-    return this.http.post<userDataType>(this.url + 'create', data);
+  postData(data : userDataType) : Observable<userDataType> { 
+    let httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type" : "application/form-data"
+      }),
+    };
+
+
+    data = {
+      fullname : 'string',
+      username : 'string',
+      email : 'string',
+      password : 'string'
+    };
+    
+    // let sendData : any = data;
+    // console.log(sendData);
+     
+    return this.http.post<userDataType>(this.url + 'create', data, httpOptions);
   }
 }
